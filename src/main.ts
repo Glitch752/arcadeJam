@@ -1,6 +1,11 @@
 import './style.css'
 import init from './init';
 
+let resizeListeners: ((width: number, height: number) => void)[] = [];
+export function addResizeHandler(callback: (width: number, height: number) => void) {
+  resizeListeners.push(callback);
+}
+
 (async () => {
   if (navigator.gpu === undefined) {
     alert('WebGPU is not supported in this browser.');
@@ -23,7 +28,9 @@ import init from './init';
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
 
-    // TODO: Logic to resize render target textures once implemented
+    for (const listener of resizeListeners) {
+      listener(canvas.clientWidth, canvas.clientHeight);
+    }
   });
 
   observer.observe(canvas);
