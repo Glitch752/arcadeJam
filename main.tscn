@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx4tced8ie5no"]
 
-[ext_resource type="PackedScene" uid="uid://cohcovqvk1x6c" path="res://assets/vehicles/sedan.glb" id="3_hfq6x"]
+[ext_resource type="PackedScene" uid="uid://b7qgywwt38cxo" path="res://sedan.tscn" id="1_jhnfk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmgoc"]
 albedo_color = Color(0.118581, 0.118581, 0.118581, 1)
@@ -19,5 +19,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4201, -0.463126, -3.61561)
 size = Vector3(66.2756, 1, 66.1406)
 material = SubResource("StandardMaterial3D_rmgoc")
 
-[node name="sedan" parent="." instance=ExtResource("3_hfq6x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98707, 0, -7.29394)
+[node name="sedan" parent="." instance=ExtResource("1_jhnfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.714168, 0, -4.60875)
