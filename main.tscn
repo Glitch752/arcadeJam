@@ -4,17 +4,19 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmgoc"]
 albedo_color = Color(0.118581, 0.118581, 0.118581, 1)
-metallic = 0.13
+metallic = 0.77
+metallic_specular = 0.0
 
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.621258, -0.526714, 0.580182, 0.0540766, 0.709817, 0.702308, -0.781738, 0.467688, -0.412496, 19.5177, 3.36185, -20.6055)
+transform = Transform3D(-0.621258, -0.526714, 0.580182, 0.302059, 0.522212, 0.797531, -0.723048, 0.670722, -0.165329, 0.048811, 13.7083, 7.3885)
+shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0506, -0.479721, 22.1322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.012, -0.479721, 11.4517)
 use_collision = true
-size = Vector3(163.002, 1, 229.758)
+size = Vector3(73.3406, 1, 89.3489)
 material = SubResource("StandardMaterial3D_rmgoc")
 
 [node name="sedan" parent="." instance=ExtResource("1_jhnfk")]

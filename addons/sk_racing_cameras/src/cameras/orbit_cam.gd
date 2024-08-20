@@ -37,7 +37,6 @@ var _cam_pos:Vector3
 @export var invert_y_axis      : bool           ## Invert vertical mouse movement.
 @export var invert_mouse_wheel : bool           ## Invert mouse wheel movement.
 
-
 func _on_enter_tree() -> void:
 	_type = "RacingOrbitCamera"
 	camera_name = "Orbit Camera"
@@ -45,6 +44,9 @@ func _on_enter_tree() -> void:
 	_init_car_from_owner()
 
 	_pivot1 = Node3D.new()
+	if stabilized:
+		_pivot1.transform = transform
+	
 	_pivot2 = Node3D.new()
 	_cam = Camera3D.new()
 
@@ -83,7 +85,7 @@ func _on_unhandled_input(event: InputEvent) -> void:
 		var y_dir := -1 if invert_y_axis else 1
 		_pivot1.rotate_y(-event.relative.x * x_dir * _shared.mouse_sensitivity)
 		_pivot2.rotate_x(-event.relative.y * y_dir * _shared.mouse_sensitivity)
-		_pivot2.rotation.x = clamp(_pivot2.rotation.x, -DEG90, DEG90)
+		_pivot2.rotation.x = clamp(_pivot2.rotation.x, -DEG90, 0)
 
 	else:
 		_check_mouse_wheel(event)

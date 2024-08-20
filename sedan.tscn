@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://dq002782w5tt4"]
 
 [ext_resource type="Script" path="res://playerMovement.gd" id="1_kudjo"]
-[ext_resource type="Script" path="res://addons/sk_racing_cameras/src/cameras/chase_cam.gd" id="2_c6di4"]
+[ext_resource type="Script" path="res://addons/sk_racing_cameras/src/cameras/orbit_cam.gd" id="2_5773v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pn7m"]
 resource_name = "Tire1"
@@ -491,79 +491,90 @@ points = PackedVector3Array(-2.30931, -2.25631, 0.302322, -2.3707, -2.21832, 0.2
 [node name="sedan" type="VehicleBody3D"]
 gravity_scale = 4.0
 center_of_mass_mode = 1
-center_of_mass = Vector3(0, 1.36, 3.26)
+center_of_mass = Vector3(0, 1.36, 0.57)
+linear_damp = 2.5
+angular_damp = 3.0
 script = ExtResource("1_kudjo")
 
-[node name="WheelBackLeft" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 4.37114e-08, 8.74228e-08, 4.37114e-08, 1, 0, -8.74231e-08, 3.82137e-15, -1, -1.94997, 0.798008, 7.61667)
-use_as_traction = true
-wheel_roll_influence = 0.01
+[node name="WheelFrontRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, -4.37114e-08, -1.74846e-07, 4.37114e-08, 1, 0, 1.74846e-07, -7.64274e-15, 1, -1.74997, 0.798008, 2.55637)
+use_as_steering = true
+wheel_roll_influence = 0.2
 wheel_radius = 0.78
-wheel_friction_slip = 1.3
-suspension_stiffness = 120.0
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.5
+suspension_travel = 0.22
+suspension_stiffness = 150.0
+suspension_max_force = 1600.0
 
-[node name="TireBackLeft" type="MeshInstance3D" parent="WheelBackLeft"]
-transform = Transform3D(-4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 3.82138e-15, 2.04687e-21, 8.74226e-08, -1, 0, 0, 0)
+[node name="TireBackLeft" type="MeshInstance3D" parent="WheelFrontRight"]
+transform = Transform3D(-4.37115e-08, 1, 1.74846e-07, -1, -4.37114e-08, -7.64274e-15, 2.8108e-20, -1.74845e-07, 1, -0.2, 0, 0)
 mesh = SubResource("ArrayMesh_syeno")
 skeleton = NodePath("")
 
-[node name="WheelBackRight" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, 0, 8.74231e-08, -3.82137e-15, -1, 1.94394, 0.798008, 7.61667)
-use_as_traction = true
-wheel_roll_influence = 0.01
+[node name="WheelFrontLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, -4.37114e-08, 2.13163e-14, 4.37114e-08, 1, 0, -2.98428e-13, 0, 1, 1.74394, 0.798008, 2.55637)
+use_as_steering = true
+wheel_roll_influence = 0.2
 wheel_radius = 0.78
-wheel_friction_slip = 1.3
-suspension_stiffness = 120.0
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.5
+suspension_travel = 0.22
+suspension_stiffness = 150.0
+suspension_max_force = 1600.0
 
-[node name="TireBackRight" type="MeshInstance3D" parent="WheelBackRight"]
-transform = Transform3D(-4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -3.82138e-15, -2.04687e-21, -8.74226e-08, -1, 0, 0, 0)
+[node name="TireBackRight" type="MeshInstance3D" parent="WheelFrontLeft"]
+transform = Transform3D(-4.37115e-08, 1, 6.39488e-14, -1, -4.37114e-08, -8.72452e-21, -2.03152e-20, -1.42109e-13, 1, 0.2, 0, 0)
 mesh = SubResource("ArrayMesh_d0j1f")
 skeleton = NodePath("")
 
-[node name="WheelFrontLeft" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 4.37114e-08, 8.74228e-08, 4.37114e-08, 1, 3.10588e-22, -8.74231e-08, 3.82137e-15, -1, -1.94997, 0.781849, 1.57463)
-use_as_steering = true
-wheel_roll_influence = 0.01
+[node name="WheelBackRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, -4.37114e-08, -2.13163e-14, 4.37114e-08, 1, 1.97659e-22, 2.98428e-13, 4.23516e-22, 1, -1.74997, 0.781849, -3.48567)
+use_as_traction = true
+wheel_roll_influence = 0.2
 wheel_radius = 0.78
-wheel_friction_slip = 1.4
-suspension_stiffness = 160.0
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.2
+suspension_travel = 0.22
+suspension_stiffness = 50.0
+suspension_max_force = 1600.0
 
-[node name="TireFrontLeft" type="MeshInstance3D" parent="WheelFrontLeft"]
-transform = Transform3D(-4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 3.82138e-15, 2.04687e-21, 8.74226e-08, -1, 0, 0, 7.15256e-07)
+[node name="TireFrontLeft" type="MeshInstance3D" parent="WheelBackRight"]
+transform = Transform3D(-4.37115e-08, 1, -6.39488e-14, -1, -4.37114e-08, 8.21628e-21, 2.07387e-20, 1.42109e-13, 1, -0.2, 0, -7.15256e-07)
 mesh = SubResource("ArrayMesh_ewf0s")
 skeleton = NodePath("")
 
-[node name="WheelFrontRight" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 4.37114e-08, 8.74228e-08, 4.37114e-08, 1, 0, -8.74231e-08, 3.82137e-15, -1, 1.94394, 0.78185, 1.57463)
-use_as_steering = true
-wheel_roll_influence = 0.01
+[node name="WheelBackLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, -4.37114e-08, -2.13163e-14, 4.37114e-08, 1, 0, 2.98428e-13, 0, 1, 1.74394, 0.78185, -3.48567)
+use_as_traction = true
+wheel_roll_influence = 0.2
 wheel_radius = 0.78
-wheel_friction_slip = 1.4
-suspension_stiffness = 160.0
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.2
+suspension_travel = 0.22
+suspension_stiffness = 50.0
+suspension_max_force = 1600.0
 
-[node name="TireFrontRight" type="MeshInstance3D" parent="WheelFrontRight"]
-transform = Transform3D(-4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 3.82138e-15, 1.5039e-21, 8.74226e-08, -1, 0, 0, 7.15256e-07)
+[node name="TireFrontRight" type="MeshInstance3D" parent="WheelBackLeft"]
+transform = Transform3D(-4.37115e-08, 1, -6.39488e-14, -1, -4.37114e-08, 8.72452e-21, 2.08582e-20, 1.42109e-13, 1, 0.2, 0, -7.15256e-07)
 mesh = SubResource("ArrayMesh_1jey5")
 skeleton = NodePath("")
 
 [node name="SedanBody" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -0.00301933, 0.09152, 2.93452)
+transform = Transform3D(0, -1, 8.74228e-08, -1, 0, 0, 0, -8.74228e-08, -1, -0.00301933, 0.09152, 1.19812)
 mesh = SubResource("ArrayMesh_ex2bd")
 skeleton = NodePath("")
 
 [node name="SedanBodyCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -0.00301933, 0.09152, 2.93452)
+transform = Transform3D(0, -1, 8.74228e-08, -1, 0, 0, 0, -8.74228e-08, -1, -0.00301933, 0.09152, 1.19812)
 shape = SubResource("ConvexPolygonShape3D_71kaf")
 
 [node name="CenterOfMass" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3552, 3.26166)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3552, 0.569505)
 
-[node name="RacingChaseCamera" type="Camera3D" parent="." node_paths=PackedStringArray("follow_car")]
-fov = 90.0
-script = ExtResource("2_c6di4")
-default_distance = 15.0
-origin_offset = 2.5
-min_height = 4.0
-max_height = 8.0
-max_distance = 8.0
-follow_car = NodePath("..")
+[node name="RacingOrbitCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38351, -0.907058)
+script = ExtResource("2_5773v")
+default_distance = 7.0
+min_distance = 7.0
+max_distance = 12.0
