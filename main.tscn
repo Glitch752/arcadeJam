@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx4tced8ie5no"]
 
-[ext_resource type="PackedScene" uid="uid://b7qgywwt38cxo" path="res://sedan.tscn" id="1_jhnfk"]
+[ext_resource type="PackedScene" uid="uid://dq002782w5tt4" path="res://sedan.tscn" id="1_jhnfk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmgoc"]
 albedo_color = Color(0.118581, 0.118581, 0.118581, 1)
@@ -8,16 +8,14 @@ metallic = 0.13
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20.759, 0)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.621258, -0.526714, 0.580182, 0.0540766, 0.709817, 0.702308, -0.781738, 0.467688, -0.412496, 19.5177, 3.36185, -20.6055)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4201, -0.463126, -3.61561)
-size = Vector3(66.2756, 1, 66.1406)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0506, -0.479721, 22.1322)
+use_collision = true
+size = Vector3(163.002, 1, 229.758)
 material = SubResource("StandardMaterial3D_rmgoc")
 
 [node name="sedan" parent="." instance=ExtResource("1_jhnfk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.714168, 0, -4.60875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.14338, 0, 8.41813)
