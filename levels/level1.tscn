@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx4tced8ie5no"]
+[gd_scene load_steps=8 format=3 uid="uid://dx4tced8ie5no"]
 
+[ext_resource type="Texture2D" uid="uid://3uviwum4rxiq" path="res://assets/tutorialResources/MovementControls.png" id="1_1bhqf"]
 [ext_resource type="PackedScene" uid="uid://dq002782w5tt4" path="res://sedan.tscn" id="1_c3dvp"]
+[ext_resource type="Material" uid="uid://dcwqhaw0trju5" path="res://assets/materials/blacktop.tres" id="1_fkx6m"]
+[ext_resource type="Texture2D" uid="uid://kbo4bno4tqwj" path="res://assets/tutorialResources/ResetControls.png" id="3_fqvoy"]
+[ext_resource type="Material" uid="uid://8k1ko6a7cd8s" path="res://assets/materials/curb.tres" id="3_ltaiv"]
 [ext_resource type="PackedScene" uid="uid://b642r4ls07ygp" path="res://assets/tree.glb" id="3_mm7ai"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d4p0"]
@@ -13,14 +17,41 @@ metallic_specular = 0.0
 transform = Transform3D(-0.621258, -0.526714, 0.580182, 0.302059, 0.522212, 0.797531, -0.723048, 0.670722, -0.165329, 0.048811, 13.7083, 7.3885)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 0.161, 0, 0, 0, 100, -19.012, -0.479721, 11.4517)
+[node name="Blacktop" type="CSGBox3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 0.161, 0, 0, 0, 100, -19.012, -0.0916346, 11.4517)
+material_override = ExtResource("1_fkx6m")
 use_collision = true
-size = Vector3(73.3406, 1, 89.3489)
+size = Vector3(30, 1, 30)
 material = SubResource("StandardMaterial3D_2d4p0")
 
+[node name="Sprite3D" type="Sprite3D" parent="Blacktop"]
+transform = Transform3D(-0.007, 1.05697e-09, 4.62017e-17, 0, -3.0598e-10, 0.007, 1.05697e-09, 0.007, 3.0598e-10, 0.142036, 0.810889, -0.116512)
+texture = ExtResource("1_1bhqf")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Blacktop"]
+transform = Transform3D(-0.007, 1.05697e-09, 4.62017e-17, 0, -3.0598e-10, 0.007, 1.05697e-09, 0.007, 3.0598e-10, 0.142036, 0.810889, -0.0415484)
+texture = ExtResource("3_fqvoy")
+
+[node name="BackCurb" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46439, 0.503178, -10.5474)
+use_collision = true
+size = Vector3(15, 1, 1)
+material = ExtResource("3_ltaiv")
+
+[node name="LeftCurb" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.42486, 0.503178, 138.983)
+use_collision = true
+size = Vector3(300, 1, 1)
+material = ExtResource("3_ltaiv")
+
+[node name="RightCurb" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.7386, 0.503178, 138.983)
+use_collision = true
+size = Vector3(300, 1, 1)
+material = ExtResource("3_ltaiv")
+
 [node name="sedan" parent="." instance=ExtResource("1_c3dvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0326116, 0, 0.0571164)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08726, 0, 0.0571164)
 
 [node name="Environment" type="Node" parent="."]
 
