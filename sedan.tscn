@@ -492,8 +492,8 @@ points = PackedVector3Array(-2.30931, -2.25631, 0.302322, -2.3707, -2.21832, 0.2
 gravity_scale = 4.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 1.36, 0.57)
-linear_damp = 2.5
-angular_damp = 3.0
+linear_damp = 1.5
+angular_damp = 1.0
 script = ExtResource("1_kudjo")
 
 [node name="WheelFrontRight" type="VehicleWheel3D" parent="."]
@@ -536,7 +536,7 @@ wheel_radius = 0.78
 wheel_rest_length = 0.2
 wheel_friction_slip = 1.2
 suspension_travel = 0.22
-suspension_stiffness = 50.0
+suspension_stiffness = 80.0
 suspension_max_force = 1600.0
 
 [node name="TireFrontLeft" type="MeshInstance3D" parent="WheelBackRight"]
@@ -552,7 +552,7 @@ wheel_radius = 0.78
 wheel_rest_length = 0.2
 wheel_friction_slip = 1.2
 suspension_travel = 0.22
-suspension_stiffness = 50.0
+suspension_stiffness = 80.0
 suspension_max_force = 1600.0
 
 [node name="TireFrontRight" type="MeshInstance3D" parent="WheelBackLeft"]
@@ -577,4 +577,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38351, -0.907058)
 script = ExtResource("2_5773v")
 default_distance = 7.0
 min_distance = 7.0
-max_distance = 15.0
+max_distance = 25.0
