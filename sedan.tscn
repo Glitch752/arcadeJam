@@ -577,4 +577,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38351, -0.907058)
 script = ExtResource("2_5773v")
 default_distance = 7.0
 min_distance = 7.0
-max_distance = 12.0
+max_distance = 15.0
