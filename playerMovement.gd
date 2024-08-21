@@ -2,11 +2,12 @@ extends VehicleBody3D
 
 const STEERING_ANGLE = 40; # In degrees
 const TURNING_SPEED = 3.5; # How fast the wheels adjust to a new position. Higher numbers are faster.
-const BASE_ENGINE_FORCE = 600; # The base engine force applied to every traction wheel individually
+const BASE_ENGINE_FORCE = 700; # The base engine force applied to every traction wheel individually
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$RacingOrbitCamera.set_active(true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

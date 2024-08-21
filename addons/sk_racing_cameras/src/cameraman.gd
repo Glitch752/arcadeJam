@@ -67,6 +67,10 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	# This is pretty hacky...
+	if !get_tree().current_scene || get_tree().current_scene.name.ends_with("Menu"):
+		return
+	
 	_shared.check_mouse_capture(event)
 
 	if _shared.next_camera_key_pressed(event):
@@ -89,7 +93,7 @@ func _init_default_cam() -> void:
 		_init_default_car()
 
 	if _cameras.size() == 1:
-		_switch_camera(0, true)
+		_switch_camera(0, false)
 		return
 
 	var track_cam_idx := -1
@@ -97,7 +101,7 @@ func _init_default_cam() -> void:
 		var cam := _cameras[i]
 		# try choosing a chase camera, if one exists
 		if cam is RacingChaseCamera and cam._car_base == _car:
-			_switch_camera(i, true)
+			_switch_camera(i, false)
 			return
 		elif cam is RacingTrackCamera:
 			track_cam_idx = i

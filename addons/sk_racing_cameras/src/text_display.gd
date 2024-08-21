@@ -31,7 +31,6 @@ func _process(delta:float) -> void:
 	if name_timer     <= 0: _hide_label(camera_name)
 	if position_timer <= 0: _hide_label(position_name)
 
-
 func _hide_label(label:Label) -> void:
 	label.hide()
 	if not camera_name.visible and not position_name.visible:
