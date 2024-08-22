@@ -12,6 +12,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if $"/root/LevelLogic".law_verification_running == true:
+		steering = move_toward(steering, 0, delta * TURNING_SPEED);
+		engine_force = 0
+		return
+	
 	steering = move_toward(
 		steering,
 		Input.get_axis("move_right", "move_left") * STEERING_ANGLE * PI / 180,

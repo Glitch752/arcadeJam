@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://menu/mainMenu.gd" id="1_dpt0h"]
 
-[sub_resource type="SystemFont" id="SystemFont_32ap8"]
+[sub_resource type="SystemFont" id="SystemFont_2ny1l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skega"]
-font = SubResource("SystemFont_32ap8")
+font = SubResource("SystemFont_2ny1l")
 font_size = 90
 font_color = Color(0, 0.35, 1, 1)
 outline_size = 10
@@ -46,7 +46,7 @@ offset_left = -183.0
 offset_right = 183.0
 offset_bottom = 168.0
 grow_horizontal = 2
-text = "Car game"
+text = "Parking is hard"
 label_settings = SubResource("LabelSettings_skega")
 horizontal_alignment = 2
 vertical_alignment = 2
@@ -70,14 +70,26 @@ alignment = 2
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../SelectLevelButton")
 text = "Play"
+
+[node name="SelectLevelButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+text = "Select level"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../SelectLevelButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 text = "Settings and info"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
 text = "Quit"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -97,5 +109,6 @@ grow_vertical = 2
 layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SelectLevelButton" to="." method="_on_select_level_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dx4tced8ie5no"]
+[gd_scene load_steps=34 format=3 uid="uid://dx4tced8ie5no"]
 
 [ext_resource type="Texture2D" uid="uid://3uviwum4rxiq" path="res://assets/tutorialResources/MovementControls.png" id="1_1bhqf"]
 [ext_resource type="PackedScene" uid="uid://dq002782w5tt4" path="res://sedan.tscn" id="1_c3dvp"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dfupk4ca3xxvv" path="res://assets/signs/streetSign3.png" id="24_ln8el"]
 [ext_resource type="Texture2D" uid="uid://wo8tbj7n7vyi" path="res://assets/signs/streetSign4.png" id="25_t3luh"]
 [ext_resource type="PackedScene" uid="uid://br7w0v0xmb57d" path="res://menu/lawList.tscn" id="28_sgo2p"]
+[ext_resource type="PackedScene" uid="uid://c3oa0oygn0eif" path="res://menu/LevelResultOverlay.tscn" id="29_7jtb7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6bvam"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -560,3 +561,5 @@ upper_fade = 1e-05
 lower_fade = 1.1487e-05
 
 [node name="RuleList" parent="." instance=ExtResource("28_sgo2p")]
+
+[node name="LevelResultOverlay" parent="." instance=ExtResource("29_7jtb7")]

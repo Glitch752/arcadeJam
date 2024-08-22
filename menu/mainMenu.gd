@@ -3,10 +3,15 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$VBoxContainer/PlayButton.grab_focus()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://levels/level1.tscn")
-	
+	$"/root/LevelLogic".load_next_level()
+
+var levelSelectScene = preload("res://menu/levelSelect.tscn")
+func _on_select_level_button_pressed():
+	get_tree().change_scene_to_packed(levelSelectScene)
+
 var settingsScene = preload("res://menu/settingsMenu.tscn").instantiate()
 func _on_settings_button_pressed():
 	settingsScene.request_ready()

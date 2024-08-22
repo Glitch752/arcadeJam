@@ -3,8 +3,7 @@ extends Control
 const LAW_LIST_UPDATE_INTERVAL = 0.05; # In seconds
 
 var law_update_timer := Timer.new()
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _enter_tree():
 	law_update_timer.one_shot = false
 	law_update_timer.autostart = true
 	law_update_timer.wait_time = LAW_LIST_UPDATE_INTERVAL
@@ -12,6 +11,10 @@ func _ready():
 	add_child(law_update_timer)
 	
 	$"/root/LevelLogic".law_verification_signal.connect(_law_verification_message)
+	
+func _exit_tree():
+	law_update_timer.disconnect("timeout", _update_laws)
+	$"/root/LevelLogic".law_verification_signal.disconnect(_law_verification_message)
 
 var broken_law_label_settings = load("res://menu/brokenLawLabelSettings.tres")
 var unbroken_law_label_settings = load("res://menu/unbrokenLawLabelSettings.tres")
@@ -26,6 +29,8 @@ func _law_verification_message(message):
 	elif type == "law":
 		var data: Dictionary = message[1]
 		var label: Label = $"LawList".get_child(data["index"])
+		if !label:
+			return
 		
 		if data["broken"]:
 			label.label_settings = final_broken_law_label_settings
@@ -37,13 +42,6 @@ func _law_verification_message(message):
 			label.find_child("SuccessParticles", false, false).emitting = true
 			await get_tree().create_timer(0.3).timeout
 			label.find_child("SuccessParticles", false, false).emitting = false
-		
-	elif type == "success":
-		var success: bool = message[1]
-		if success:
-			print("Success!")
-		else:
-			print("Fail!")
 
 var previous_law_list_length := 0
 func _update_laws():
@@ -76,6 +74,9 @@ func _update_law_styles(law_status: Array[Dictionary]):
 	var idx = 0
 	for law in law_status:
 		var label = $"LawList".get_child(idx)
+		if !label:
+			break
+		
 		if law["broken"]:
 			label.label_settings = broken_law_label_settings
 		else:
