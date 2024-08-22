@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dx4tced8ie5no"]
+[gd_scene load_steps=33 format=3 uid="uid://cjpmm5f57gfcd"]
 
 [ext_resource type="Texture2D" uid="uid://3uviwum4rxiq" path="res://assets/tutorialResources/MovementControls.png" id="1_1bhqf"]
 [ext_resource type="PackedScene" uid="uid://dq002782w5tt4" path="res://sedan.tscn" id="1_c3dvp"]
@@ -46,7 +46,7 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_o4un6"]
 size = Vector3(1, 83, 123)
 
-[node name="Level1" type="Node3D"]
+[node name="Level2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nohqr")

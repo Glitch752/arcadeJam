@@ -10,14 +10,48 @@ func _process(delta):
 
 #region Level logic
 var levels: Array[Dictionary] = [
-	{ "scene": preload("res://levels/level1.tscn"), "name": "Tutorial" }
+	{ "scene": preload("res://levels/level1.tscn"), "name": "Tutorial" },
+	{ "scene": preload("res://levels/level2.tscn"), "name": "Real parking" }
 ];
-var current_level: int = -1
+var current_level: int = -1;
+
+func get_level_data() -> Array[Dictionary]:
+	if !FileAccess.file_exists("user://levelsCompleted.save"):
+		var levels_completed_file = FileAccess.open("user://levelsCompleted.save", FileAccess.WRITE)
+		levels_completed_file.store_32(0)
+		levels_completed_file.close()
+	
+	var levels_completed_file = FileAccess.open("user://levelsCompleted.save", FileAccess.READ)
+	var last_level_completed: int = levels_completed_file.get_32() - 1
+	
+	var i = 0
+	var level_data: Array[Dictionary] = []
+	for level in levels:
+		level_data.append({
+			"name": level["name"],
+			"complete": i <= last_level_completed,
+			"laws": parkingLaws.filter(func(law): return law["introduced"] <= i).size()
+		})
+		i += 1
+	
+	return level_data
+
+func load_from_menu():
+	var level_data = get_level_data()
+	var i = 0
+	for level in level_data:
+		if !level["complete"]:
+			load_level(i)
+			return
+		i += 1
+	load_level(0)
 
 func get_current_level() -> int:
 	return current_level
 
 func load_level(level_index: int):
+	print("Loading level ", level_index)
+	
 	if level_index < 0 || level_index >= levels.size():
 		print("Tried to load an out-of-range level: ", level_index, "!")
 		return
@@ -35,6 +69,17 @@ func load_next_level():
 		return
 	
 	load_level(current_level + 1)
+	
+	if !FileAccess.file_exists("user://levelsCompleted.save"):
+		var levels_completed_file = FileAccess.open("user://levelsCompleted.save", FileAccess.WRITE)
+		levels_completed_file.store_32(1)
+		levels_completed_file.close()
+	
+	var levels_completed_file = FileAccess.open("user://levelsCompleted.save", FileAccess.READ_WRITE)
+	var last_level_completed: int = levels_completed_file.get_32() - 1
+	if last_level_completed < current_level:
+		levels_completed_file.seek(0)
+		levels_completed_file.store_32(current_level)
 
 func load_menu():
 	get_tree().change_scene_to_file("res://menu/mainMenu.tscn")
@@ -59,12 +104,12 @@ var parkingLaws: Array[Dictionary] = [
 	{
 		"name": "Don't touch other cars while parked.",
 		"verify": _verify_touching_other_cars,
-		"introduced": 1
+		"introduced": 0
 	},
 	{
 		"name": "Don't touch other cars while parked.",
 		"verify": _verify_touching_other_cars,
-		"introduced": 1
+		"introduced": 0
 	},
 	{
 		"name": "Don't touch other cars while parked.",

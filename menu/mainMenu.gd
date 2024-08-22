@@ -6,7 +6,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_play_button_pressed():
-	$"/root/LevelLogic".load_next_level()
+	$"/root/LevelLogic".load_from_menu()
 
 var levelSelectScene = preload("res://menu/levelSelect.tscn")
 func _on_select_level_button_pressed():
