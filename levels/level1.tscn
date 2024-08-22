@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://dx4tced8ie5no"]
+[gd_scene load_steps=32 format=3 uid="uid://dx4tced8ie5no"]
 
 [ext_resource type="Texture2D" uid="uid://3uviwum4rxiq" path="res://assets/tutorialResources/MovementControls.png" id="1_1bhqf"]
 [ext_resource type="PackedScene" uid="uid://dq002782w5tt4" path="res://sedan.tscn" id="1_c3dvp"]
+[ext_resource type="Script" path="res://levels/level1.gd" id="1_h4f7o"]
 [ext_resource type="PackedScene" uid="uid://dvtvyjosms2wh" path="res://assets/roads/tile_low.glb" id="3_60v43"]
 [ext_resource type="Texture2D" uid="uid://kbo4bno4tqwj" path="res://assets/tutorialResources/ResetControls.png" id="3_fqvoy"]
 [ext_resource type="PackedScene" uid="uid://b642r4ls07ygp" path="res://assets/tree.glb" id="3_mm7ai"]
@@ -17,10 +18,15 @@
 [ext_resource type="Texture2D" uid="uid://dvpi6s3cmyc4l" path="res://assets/tutorialResources/ZoomControls.png" id="15_1iecw"]
 [ext_resource type="Material" uid="uid://dwt8lr4ktuuwk" path="res://assets/materials/pavement.tres" id="15_y11uy"]
 [ext_resource type="Texture2D" uid="uid://sq1vpajfkgsp" path="res://assets/tutorialResources/CameraControls.png" id="16_fx5yx"]
+[ext_resource type="Texture2D" uid="uid://c4mvsc2r1fjya" path="res://assets/tutorialResources/ParkControls.png" id="17_q4vth"]
 [ext_resource type="PackedScene" uid="uid://cohcovqvk1x6c" path="res://assets/vehicles/sedan.glb" id="18_opr5g"]
 [ext_resource type="PackedScene" uid="uid://cu5402l7eevvx" path="res://assets/vehicles/truck.glb" id="19_w1q1n"]
 [ext_resource type="PackedScene" uid="uid://bsuhm4lble4de" path="res://assets/vehicles/schoolBus.glb" id="20_0hqam"]
 [ext_resource type="PackedScene" uid="uid://d0f4yffyyul7j" path="res://assets/sign.glb" id="21_yxmyd"]
+[ext_resource type="Texture2D" uid="uid://c5s7odi0accjq" path="res://assets/signs/streetSign1.png" id="22_s7j1r"]
+[ext_resource type="Texture2D" uid="uid://c4ykbhkniu56l" path="res://assets/signs/streetSign2.png" id="23_gwf4y"]
+[ext_resource type="Texture2D" uid="uid://dfupk4ca3xxvv" path="res://assets/signs/streetSign3.png" id="24_ln8el"]
+[ext_resource type="Texture2D" uid="uid://wo8tbj7n7vyi" path="res://assets/signs/streetSign4.png" id="25_t3luh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6bvam"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,6 +46,7 @@ glow_enabled = true
 size = Vector3(1, 83, 123)
 
 [node name="Level1" type="Node3D"]
+script = ExtResource("1_h4f7o")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nohqr")
@@ -49,7 +56,7 @@ transform = Transform3D(-0.621258, -0.526714, 0.580182, 0.302059, 0.522212, 0.79
 shadow_enabled = true
 
 [node name="sedan" parent="." instance=ExtResource("1_c3dvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9127, 0.4, 0.0571164)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6264, 0.4, 0.0571164)
 
 [node name="Environment" type="Node" parent="."]
 
@@ -274,20 +281,24 @@ transform = Transform3D(-30.2016, 0, -4.56032e-06, 0, 30.2016, 0, 4.56031e-06, 0
 [node name="TutorialSprites" type="Node" parent="."]
 
 [node name="MoveControls" type="Sprite3D" parent="TutorialSprites"]
-transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -14.2084, 0.338919, -0.199498)
+transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -16.3133, 0.338919, -0.199498)
 texture = ExtResource("1_1bhqf")
 
 [node name="ResetControls" type="Sprite3D" parent="TutorialSprites"]
-transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -14.2084, 0.338919, 7.29686)
+transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -16.3133, 0.338919, 7.29686)
 texture = ExtResource("3_fqvoy")
 
 [node name="ZoomControls" type="Sprite3D" parent="TutorialSprites"]
-transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -14.2084, 0.338919, 21.2969)
+transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -16.3133, 0.338919, 21.2969)
 texture = ExtResource("15_1iecw")
 
 [node name="CameraControls" type="Sprite3D" parent="TutorialSprites"]
-transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -14.2084, 0.338919, 18.2969)
+transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -16.3133, 0.338919, 18.2969)
 texture = ExtResource("16_fx5yx")
+
+[node name="CameraControls2" type="Sprite3D" parent="TutorialSprites"]
+transform = Transform3D(-0.7, 1.05697e-07, 4.62018e-15, -1.54394e-25, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -26.3653, 0.338919, 45.0358)
+texture = ExtResource("17_q4vth")
 
 [node name="Walls" type="Node" parent="."]
 
@@ -421,5 +432,128 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.33
 [node name="schoolBus6" parent="OtherVehicles" instance=ExtResource("20_0hqam")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.3333, 0, -27)
 
-[node name="sign" parent="." instance=ExtResource("21_yxmyd")]
+[node name="Signs" type="Node" parent="."]
+
+[node name="sign" parent="Signs" instance=ExtResource("21_yxmyd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.4, 29)
+
+[node name="Decal" type="Decal" parent="Signs/sign"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 5.53328, -0.0500011)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("22_s7j1r")
+upper_fade = 1.1487e-05
+lower_fade = 1.10957e-05
+
+[node name="Decal4" type="Decal" parent="Signs/sign"]
+transform = Transform3D(1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, 0.410334, 5.53328, -0.0500011)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("22_s7j1r")
+upper_fade = 1.1487e-05
+lower_fade = 1.10957e-05
+
+[node name="Decal2" type="Decal" parent="Signs/sign"]
+transform = Transform3D(0.999575, 5.57162e-17, -0.0291604, -0.0291604, 1.90987e-15, -0.999575, 3.30782e-24, 1, 1.91069e-15, 0.128519, 4.99803, 0.192963)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("23_gwf4y")
+upper_fade = 1.03526e-05
+lower_fade = 1e-05
+
+[node name="Decal3" type="Decal" parent="Signs/sign"]
+transform = Transform3D(-0.999, -8.71843e-08, -0.0447004, 0.0447004, 6.4529e-09, -0.999, 8.73856e-08, -1, -2.54928e-09, 0.128519, 4.99803, -0.181524)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("23_gwf4y")
+upper_fade = 1e-05
+lower_fade = 1.1487e-05
+
+[node name="sign2" parent="Signs" instance=ExtResource("21_yxmyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.323, 0.4, 29)
+
+[node name="Decal" type="Decal" parent="Signs/sign2"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 5.53328, -0.0500011)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("24_ln8el")
+upper_fade = 1.1487e-05
+lower_fade = 1.10957e-05
+
+[node name="Decal4" type="Decal" parent="Signs/sign2"]
+transform = Transform3D(1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, 0.410334, 5.53328, -0.0500011)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("24_ln8el")
+upper_fade = 1.1487e-05
+lower_fade = 1.10957e-05
+
+[node name="Decal2" type="Decal" parent="Signs/sign2"]
+transform = Transform3D(0.999575, 5.57162e-17, -0.0291604, -0.0291604, 1.90987e-15, -0.999575, 3.30782e-24, 1, 1.91069e-15, 0.128519, 4.99803, 0.192963)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("23_gwf4y")
+upper_fade = 1.03526e-05
+lower_fade = 1e-05
+
+[node name="Decal3" type="Decal" parent="Signs/sign2"]
+transform = Transform3D(-0.999, -8.71843e-08, -0.0447004, 0.0447004, 6.4529e-09, -0.999, 8.73856e-08, -1, -2.54928e-09, 0.128519, 4.99803, -0.181524)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("23_gwf4y")
+upper_fade = 1e-05
+lower_fade = 1.1487e-05
+
+[node name="sign3" parent="Signs" instance=ExtResource("21_yxmyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.323, 0.4, -5.03012)
+
+[node name="Decal" type="Decal" parent="Signs/sign3"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 5.53328, -0.0500011)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("24_ln8el")
+upper_fade = 1.1487e-05
+lower_fade = 1.10957e-05
+
+[node name="Decal4" type="Decal" parent="Signs/sign3"]
+transform = Transform3D(1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, 0.410334, 5.53328, -0.0500011)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("24_ln8el")
+upper_fade = 1.1487e-05
+lower_fade = 1.10957e-05
+
+[node name="Decal2" type="Decal" parent="Signs/sign3"]
+transform = Transform3D(0.999575, 5.57162e-17, -0.0291604, -0.0291604, 1.90987e-15, -0.999575, 3.30782e-24, 1, 1.91069e-15, 0.128519, 4.99803, 0.192963)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("25_t3luh")
+upper_fade = 1.03526e-05
+lower_fade = 1e-05
+
+[node name="Decal3" type="Decal" parent="Signs/sign3"]
+transform = Transform3D(-0.999, -8.71843e-08, -0.0447004, 0.0447004, 6.4529e-09, -0.999, 8.73856e-08, -1, -2.54928e-09, 0.128519, 4.99803, -0.181524)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("25_t3luh")
+upper_fade = 1e-05
+lower_fade = 1.1487e-05
+
+[node name="sign4" parent="Signs" instance=ExtResource("21_yxmyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97536, 0.4, -5.03012)
+
+[node name="Decal" type="Decal" parent="Signs/sign4"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 5.53328, -0.0500011)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("22_s7j1r")
+upper_fade = 1.1487e-05
+lower_fade = 1.10957e-05
+
+[node name="Decal4" type="Decal" parent="Signs/sign4"]
+transform = Transform3D(1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, 0.410334, 5.53328, -0.0500011)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("22_s7j1r")
+upper_fade = 1.1487e-05
+lower_fade = 1.10957e-05
+
+[node name="Decal2" type="Decal" parent="Signs/sign4"]
+transform = Transform3D(0.999575, 5.57162e-17, -0.0291604, -0.0291604, 1.90987e-15, -0.999575, 3.30782e-24, 1, 1.91069e-15, 0.128519, 4.99803, 0.192963)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("25_t3luh")
+upper_fade = 1.03526e-05
+lower_fade = 1e-05
+
+[node name="Decal3" type="Decal" parent="Signs/sign4"]
+transform = Transform3D(-0.999, -8.71843e-08, -0.0447004, 0.0447004, 6.4529e-09, -0.999, 8.73856e-08, -1, -2.54928e-09, 0.128519, 4.99803, -0.181524)
+size = Vector3(2.3, 0.4, 0.533447)
+texture_albedo = ExtResource("25_t3luh")
+upper_fade = 1e-05
+lower_fade = 1.1487e-05
