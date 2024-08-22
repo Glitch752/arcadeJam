@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b2di5pd7udbec"
-path="res://.godot/imported/road_drivewaySingle.glb-d9d10e35d69bede6eae693eda41c4b10.scn"
+uid="uid://b642r4ls07ygp"
+path="res://.godot/imported/tree.glb-347aacc7dedb871acb9673ca5518341b.scn"
 
 [deps]
 
-source_file="res://assets/roads/road_drivewaySingle.glb"
-dest_files=["res://.godot/imported/road_drivewaySingle.glb-d9d10e35d69bede6eae693eda41c4b10.scn"]
+source_file="res://assets/signs/tree.glb"
+dest_files=["res://.godot/imported/tree.glb-347aacc7dedb871acb9673ca5518341b.scn"]
 
 [params]
 
@@ -31,9 +31,8 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:tmpParent/road_drivewaySingle": {
-"generate/physics": true,
-"physics/shape_type": 2
+"PATH:Circle": {
+"generate/physics": true
 }
 }
 }

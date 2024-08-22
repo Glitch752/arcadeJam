@@ -11,7 +11,9 @@ func _process(delta):
 #region Level logic
 var levels: Array[Dictionary] = [
 	{ "scene": preload("res://levels/level1.tscn"), "name": "Tutorial" },
-	{ "scene": preload("res://levels/level2.tscn"), "name": "Real parking" }
+	{ "scene": preload("res://levels/level2.tscn"), "name": "Real parking" },
+	{ "scene": preload("res://levels/level3.tscn"), "name": "No space" },
+	{ "scene": preload("res://levels/level4.tscn"), "name": "What does \"blocking\" entail?" }
 ];
 var current_level: int = -1;
 
@@ -62,14 +64,6 @@ func load_level(level_index: int):
 	current_level = level_index
 
 func load_next_level():
-	if current_level + 1 >= levels.size():
-		# You finished the game!
-		# TODO: A win screen or something
-		load_menu()
-		return
-	
-	load_level(current_level + 1)
-	
 	if !FileAccess.file_exists("user://levelsCompleted.save"):
 		var levels_completed_file = FileAccess.open("user://levelsCompleted.save", FileAccess.WRITE)
 		levels_completed_file.store_32(1)
@@ -77,9 +71,17 @@ func load_next_level():
 	
 	var levels_completed_file = FileAccess.open("user://levelsCompleted.save", FileAccess.READ_WRITE)
 	var last_level_completed: int = levels_completed_file.get_32() - 1
-	if last_level_completed < current_level:
+	if last_level_completed < current_level + 1:
 		levels_completed_file.seek(0)
-		levels_completed_file.store_32(current_level)
+		levels_completed_file.store_32(current_level + 1)
+	
+	if current_level + 1 >= levels.size():
+		# You finished the game!
+		# TODO: A win screen or something
+		load_menu()
+		return
+	
+	load_level(current_level + 1)
 
 func load_menu():
 	get_tree().change_scene_to_file("res://menu/mainMenu.tscn")
@@ -107,19 +109,9 @@ var parkingLaws: Array[Dictionary] = [
 		"introduced": 0
 	},
 	{
-		"name": "Don't touch other cars while parked.",
-		"verify": _verify_touching_other_cars,
-		"introduced": 0
-	},
-	{
-		"name": "Don't touch other cars while parked.",
-		"verify": _verifyOnRoad,
+		"name": "Park near the edge of the road.",
+		"verify": _verify_near_road_edge,
 		"introduced": 1
-	},
-	{
-		"name": "You must be on the road when parked.",
-		"verify": _verifyOnRoad,
-		"introduced": 2
 	},
 ];
 
@@ -133,8 +125,18 @@ func player_car_stop_touching(other: Node3D):
 	if other.find_parent("OtherVehicles") && touching_other_cars.has(other.name):
 		touching_other_cars = touching_other_cars.filter(func(name): return name != other.name)
 
-func _verifyOnRoad() -> bool:
-	return false
+func _verify_near_road_edge() -> bool:
+	var scene = get_tree().current_scene
+	if !scene:
+		return false
+	
+	var road_edge_area: Area3D = scene.find_child("RoadEdgeArea", false, false)
+	var player: Node3D = scene.find_child("sedan", false, false)
+	
+	if !road_edge_area || !player:
+		return false
+	
+	return road_edge_area.overlaps_body(player)
 #endregion
 
 func get_active_laws() -> Array[Dictionary]:
