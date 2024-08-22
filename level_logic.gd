@@ -14,7 +14,7 @@ var parkingLaws: Array[Dictionary] = [
 	},
 	{
 		"name": "Don't touch other cars while parked.",
-		"verify": _verify_touching_other_cars,
+		"verify": _verifyOnRoad,
 		"introduced": 1
 	},
 	{
@@ -35,16 +35,8 @@ func player_car_stop_touching(other: Node3D):
 		touching_other_cars = touching_other_cars.filter(func(name): return name != other.name)
 
 func _verifyOnRoad() -> bool:
-	return true
+	return false
 #endregion
-
-
-
-func reset_level_state():
-	touching_other_cars.clear()
-
-
-
 
 
 func get_active_laws() -> Array[Dictionary]:
@@ -92,13 +84,42 @@ func _unhandled_input(event):
 	if event.is_action_released("park"):
 		_attempt_parking()
 
+var law_verification_running: bool = false
+signal law_verification_signal
+
 func _attempt_parking():
+	if law_verification_running:
+		return
+	
+	law_verification_running = true
 	# This is super hacky, but it works for now ¯\_(ツ)_/¯
 	var lawStatus = get_law_status()
 	
+	law_verification_signal.emit(["laws", lawStatus])
+	var anyBroken := false
+	var i := 0
 	for law in lawStatus:
+		law_verification_signal.emit(["law", {
+			"index": i,
+			"broken": law["broken"]
+		}])
+		i += 1
 		if law["broken"]:
 			print("Broke law ", law["name"], "!")
+			anyBroken = true
 		else:
 			print("Law ", law["name"], " satisfied!")
-		await get_tree().create_timer(0.3).timeout
+			
+		await get_tree().create_timer(1.2).timeout
+	
+	law_verification_signal.emit(["success", !anyBroken])
+	
+	await get_tree().create_timer(1).timeout
+	
+	law_verification_running = false
+
+
+
+func reset_level_state():
+	touching_other_cars.clear()
+	law_verification_running = false
