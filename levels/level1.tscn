@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dx4tced8ie5no"]
+[gd_scene load_steps=26 format=3 uid="uid://dx4tced8ie5no"]
 
 [ext_resource type="Texture2D" uid="uid://3uviwum4rxiq" path="res://assets/tutorialResources/MovementControls.png" id="1_1bhqf"]
 [ext_resource type="PackedScene" uid="uid://dq002782w5tt4" path="res://sedan.tscn" id="1_c3dvp"]
@@ -14,7 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://bax80i6axlio3" path="res://assets/buildings/large_buildingF.glb" id="12_6a20g"]
 [ext_resource type="PackedScene" uid="uid://dja46x1l7qtp1" path="res://assets/buildings/large_buildingG.glb" id="13_ygsjc"]
 [ext_resource type="PackedScene" uid="uid://bqd35jwgwps5y" path="res://assets/roads/light_square.glb" id="14_cjbpt"]
+[ext_resource type="Texture2D" uid="uid://dvpi6s3cmyc4l" path="res://assets/tutorialResources/ZoomControls.png" id="15_1iecw"]
 [ext_resource type="Material" uid="uid://dwt8lr4ktuuwk" path="res://assets/materials/pavement.tres" id="15_y11uy"]
+[ext_resource type="Texture2D" uid="uid://sq1vpajfkgsp" path="res://assets/tutorialResources/CameraControls.png" id="16_fx5yx"]
+[ext_resource type="PackedScene" uid="uid://cohcovqvk1x6c" path="res://assets/vehicles/sedan.glb" id="18_opr5g"]
+[ext_resource type="PackedScene" uid="uid://cu5402l7eevvx" path="res://assets/vehicles/truck.glb" id="19_w1q1n"]
+[ext_resource type="PackedScene" uid="uid://bsuhm4lble4de" path="res://assets/vehicles/schoolBus.glb" id="20_0hqam"]
+[ext_resource type="PackedScene" uid="uid://d0f4yffyyul7j" path="res://assets/sign.glb" id="21_yxmyd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6bvam"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,7 +34,6 @@ background_mode = 2
 sky = SubResource("Sky_7opbe")
 tonemap_mode = 2
 ssao_enabled = true
-sdfgi_enabled = true
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o4un6"]
@@ -44,7 +49,7 @@ transform = Transform3D(-0.621258, -0.526714, 0.580182, 0.302059, 0.522212, 0.79
 shadow_enabled = true
 
 [node name="sedan" parent="." instance=ExtResource("1_c3dvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9127, 0.4, 0.0571164)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9127, 0.4, 0.0571164)
 
 [node name="Environment" type="Node" parent="."]
 
@@ -148,46 +153,46 @@ transform = Transform3D(-8.18277e-07, 0, 18.72, 0, 18.72, 0, -18.72, 0, -8.18277
 transform = Transform3D(-18.72, 0, -1.63655e-06, 0, 18.72, 0, 1.63655e-06, 0, -18.72, -28.2865, 0.00649051, -67.0888)
 
 [node name="light_square2" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(-21.3408, 0, -1.86567e-06, 0, 21.3408, 0, 1.86567e-06, 0, -21.3408, -18.3701, 0.00649051, 71.5358)
+transform = Transform3D(-12.8045, 0, -1.1194e-06, 0, 12.8045, 0, 1.1194e-06, 0, -12.8045, -18.3701, 0.00649051, 64.5358)
 
 [node name="light_square3" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(2.79851e-06, 0, -21.3408, 0, 21.3408, 0, 21.3408, 0, 2.79851e-06, 70.3283, 0.00649051, 26.5204)
+transform = Transform3D(1.6791e-06, 0, -12.8045, 0, 12.8045, 0, 12.8045, 0, 1.6791e-06, 63.3283, 0.00649051, 26.5204)
 
 [node name="light_square4" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(-21.3408, 0, -1.86567e-06, 0, 21.3408, 0, 1.86567e-06, 0, -21.3408, 12.3073, 0.00649051, 71.5358)
+transform = Transform3D(-12.8045, 0, -1.1194e-06, 0, 12.8045, 0, 1.1194e-06, 0, -12.8045, 12.3073, 0.00649051, 64.5358)
 
 [node name="light_square5" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(2.79851e-06, 0, -21.3408, 0, 21.3408, 0, 21.3408, 0, 2.79851e-06, 70.3283, 0.00649051, -2.82317)
+transform = Transform3D(1.6791e-06, 0, -12.8045, 0, 12.8045, 0, 12.8045, 0, 1.6791e-06, 63.3283, 0.00649051, -2.82317)
 
 [node name="light_square12" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(2.79851e-06, 0, -21.3408, 0, 21.3408, 0, 21.3408, 0, 2.79851e-06, 10.3283, 0.00649051, 12.1768)
+transform = Transform3D(1.6791e-06, 0, -12.8045, 0, 12.8045, 0, 12.8045, 0, 1.6791e-06, 2.32826, 0.00649051, 12.1768)
 
 [node name="light_square13" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(21.3408, 0, 3.73134e-06, 0, 21.3408, 0, -3.73134e-06, 0, 21.3408, 10.3283, 0.00649051, 12.1768)
+transform = Transform3D(12.8045, 0, 2.23881e-06, 0, 12.8045, 0, -2.23881e-06, 0, 12.8045, 10.3283, 0.00649051, 19.1768)
 
 [node name="light_square14" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(-4.66418e-06, 0, 21.3408, 0, 21.3408, 0, -21.3408, 0, -4.66418e-06, 10.3283, 0.00649051, 12.1768)
+transform = Transform3D(-2.79851e-06, 0, 12.8045, 0, 12.8045, 0, -12.8045, 0, -2.79851e-06, 17.3283, 0.00649051, 12.1768)
 
 [node name="light_square15" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(-21.3408, 0, -5.59702e-06, 0, 21.3408, 0, 5.59702e-06, 0, -21.3408, 10.3283, 0.00649051, 12.1768)
+transform = Transform3D(-12.8045, 0, -3.35821e-06, 0, 12.8045, 0, 3.35821e-06, 0, -12.8045, 10.3283, 0.00649051, 4.17683)
 
 [node name="light_square6" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(-21.3408, 0, -1.86567e-06, 0, 21.3408, 0, 1.86567e-06, 0, -21.3408, 42.9847, 0.00649051, 71.5358)
+transform = Transform3D(-12.8045, 0, -1.1194e-06, 0, 12.8045, 0, 1.1194e-06, 0, -12.8045, 42.9847, 0.00649051, 64.5358)
 
 [node name="light_square7" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(21.3408, 0, 2.42617e-13, 0, 21.3408, 0, -2.42617e-13, 0, 21.3408, 40.3171, 0.00649051, -48.1053)
+transform = Transform3D(12.8045, 0, 1.4557e-13, 0, 12.8045, 0, -1.4557e-13, 0, 12.8045, 40.3171, 0.00649051, -42.1053)
 
 [node name="light_square8" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(-9.32836e-07, 0, 21.3408, 0, 21.3408, 0, -21.3408, 0, -9.32836e-07, -49.3813, 0.00649051, -3.08992)
+transform = Transform3D(-5.59702e-07, 0, 12.8045, 0, 12.8045, 0, -12.8045, 0, -5.59702e-07, -42.3813, 0.00649051, -3.08992)
 
 [node name="light_square9" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(21.3408, 0, 2.42617e-13, 0, 21.3408, 0, -2.42617e-13, 0, 21.3408, 9.63966, 0.00649051, -48.1053)
+transform = Transform3D(12.8045, 0, 1.4557e-13, 0, 12.8045, 0, -1.4557e-13, 0, 12.8045, 9.63966, 0.00649051, -42.1053)
 
 [node name="light_square10" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(-9.32836e-07, 0, 21.3408, 0, 21.3408, 0, -21.3408, 0, -9.32836e-07, -49.3813, 0.00649051, 26.2537)
+transform = Transform3D(-5.59702e-07, 0, 12.8045, 0, 12.8045, 0, -12.8045, 0, -5.59702e-07, -42.3813, 0.00649051, 26.2537)
 
 [node name="light_square11" parent="Environment" instance=ExtResource("14_cjbpt")]
-transform = Transform3D(21.3408, 0, 2.42617e-13, 0, 21.3408, 0, -2.42617e-13, 0, 21.3408, -21.0377, 0.00649051, -48.1053)
+transform = Transform3D(12.8045, 0, 1.4557e-13, 0, 12.8045, 0, -1.4557e-13, 0, 12.8045, -21.0377, 0.00649051, -42.1053)
 
 [node name="Tiles" type="Node" parent="."]
 
@@ -269,12 +274,20 @@ transform = Transform3D(-30.2016, 0, -4.56032e-06, 0, 30.2016, 0, 4.56031e-06, 0
 [node name="TutorialSprites" type="Node" parent="."]
 
 [node name="MoveControls" type="Sprite3D" parent="TutorialSprites"]
-transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -24.2084, 0.338919, -0.199498)
+transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -14.2084, 0.338919, -0.199498)
 texture = ExtResource("1_1bhqf")
 
 [node name="ResetControls" type="Sprite3D" parent="TutorialSprites"]
-transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -24.2084, 0.338919, 7.29686)
+transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -14.2084, 0.338919, 7.29686)
 texture = ExtResource("3_fqvoy")
+
+[node name="ZoomControls" type="Sprite3D" parent="TutorialSprites"]
+transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -14.2084, 0.338919, 21.2969)
+texture = ExtResource("15_1iecw")
+
+[node name="CameraControls" type="Sprite3D" parent="TutorialSprites"]
+transform = Transform3D(-0.7, 1.05697e-07, 4.62017e-15, 0, -4.92628e-11, 0.001127, 1.05697e-07, 0.7, 3.0598e-08, -14.2084, 0.338919, 18.2969)
+texture = ExtResource("16_fx5yx")
 
 [node name="Walls" type="Node" parent="."]
 
@@ -317,10 +330,96 @@ operation = 2
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Floor/CSGCombiner3D"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 10.3274, 0.00233241, 11.1291)
-size = Vector3(300, 1, 300)
+size = Vector3(800, 1, 800)
 material = ExtResource("15_y11uy")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Floor/CSGCombiner3D"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 10.0773, 0.00233241, 11.7891)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 10.0773, 0.00233239, 11.7891)
 operation = 2
-size = Vector3(125.8, 1, 125.9)
+size = Vector3(125.8, 3, 125.9)
+
+[node name="OtherVehicles" type="Node" parent="."]
+
+[node name="sedan2" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19, 0, 51)
+
+[node name="sedan3" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0, 51)
+
+[node name="sedan8" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.66667, 0, 34.3333)
+
+[node name="truck" parent="OtherVehicles" instance=ExtResource("19_w1q1n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, 51)
+
+[node name="schoolBus" parent="OtherVehicles" instance=ExtResource("20_0hqam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 0, 51)
+
+[node name="schoolBus7" parent="OtherVehicles" instance=ExtResource("20_0hqam")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.3333, 0, 34.3333)
+
+[node name="truck2" parent="OtherVehicles" instance=ExtResource("19_w1q1n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32, 0, 51)
+
+[node name="truck7" parent="OtherVehicles" instance=ExtResource("19_w1q1n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.33333, 0, 34.3333)
+
+[node name="sedan9" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.3333, 0, 30.3333)
+
+[node name="schoolBus8" parent="OtherVehicles" instance=ExtResource("20_0hqam")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.3333, 0, 8.33334)
+
+[node name="truck8" parent="OtherVehicles" instance=ExtResource("19_w1q1n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.3333, 0, 19.3333)
+
+[node name="sedan10" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 27.3333, 0, -10.6667)
+
+[node name="schoolBus9" parent="OtherVehicles" instance=ExtResource("20_0hqam")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5.33333, 0, -10.6667)
+
+[node name="truck9" parent="OtherVehicles" instance=ExtResource("19_w1q1n")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 16.3333, 0, -10.6667)
+
+[node name="schoolBus2" parent="OtherVehicles" instance=ExtResource("20_0hqam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 48, 0, 51)
+
+[node name="sedan4" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3333, 0, 38.3333)
+
+[node name="truck3" parent="OtherVehicles" instance=ExtResource("19_w1q1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3333, 0, 26.3333)
+
+[node name="schoolBus3" parent="OtherVehicles" instance=ExtResource("20_0hqam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3333, 0, 10.3333)
+
+[node name="sedan5" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3333, 0, -0.666672)
+
+[node name="truck4" parent="OtherVehicles" instance=ExtResource("19_w1q1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3333, 0, -12.6667)
+
+[node name="schoolBus4" parent="OtherVehicles" instance=ExtResource("20_0hqam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3333, 0, -28.6667)
+
+[node name="sedan6" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 34.6667, 0, -27)
+
+[node name="truck5" parent="OtherVehicles" instance=ExtResource("19_w1q1n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6667, 0, -27)
+
+[node name="schoolBus5" parent="OtherVehicles" instance=ExtResource("20_0hqam")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.66667, 0, -27)
+
+[node name="sedan7" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.33334, 0, -27)
+
+[node name="truck6" parent="OtherVehicles" instance=ExtResource("19_w1q1n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.3333, 0, -27)
+
+[node name="schoolBus6" parent="OtherVehicles" instance=ExtResource("20_0hqam")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.3333, 0, -27)
+
+[node name="sign" parent="." instance=ExtResource("21_yxmyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.4, 29)

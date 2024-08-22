@@ -46,8 +46,10 @@ func _on_enter_tree() -> void:
 	_pivot1 = Node3D.new()
 	if stabilized:
 		_pivot1.transform = transform
+	_pivot1.rotate_y(PI)
 	
 	_pivot2 = Node3D.new()
+	_pivot2.rotate_x(PI / 4)
 	_cam = Camera3D.new()
 
 	add_child(_pivot1)

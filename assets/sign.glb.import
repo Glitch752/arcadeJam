@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://be7yxvpey7kiu"
-path="res://.godot/imported/semiTruck.glb-0f64a8425513a48b902dc4bada76958f.scn"
+uid="uid://d0f4yffyyul7j"
+path="res://.godot/imported/sign.glb-9b151b4a39c349f4f5317bf99bac2c92.scn"
 
 [deps]
 
-source_file="res://assets/vehicles/semiTruck.glb"
-dest_files=["res://.godot/imported/semiTruck.glb-0f64a8425513a48b902dc4bada76958f.scn"]
+source_file="res://assets/sign.glb"
+dest_files=["res://.godot/imported/sign.glb-9b151b4a39c349f4f5317bf99bac2c92.scn"]
 
 [params]
 
@@ -29,15 +29,6 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:SemiTruckFrontBody": {
-"generate/physics": true
-},
-"PATH:SemiTruckTrailer": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

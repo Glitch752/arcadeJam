@@ -29,6 +29,18 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:MonsterTruckBody": {
+"generate/physics": true
+},
+"PATH:MonsterTruckTires1": {
+"generate/physics": true
+},
+"PATH:MonsterTruckTires2": {
+"generate/physics": true
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
