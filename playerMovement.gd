@@ -18,3 +18,9 @@ func _process(delta):
 		delta * TURNING_SPEED
 	);
 	engine_force = Input.get_axis("move_back", "move_forward") * BASE_ENGINE_FORCE
+
+
+func _on_car_collider_body_entered(body):
+	$"/root/LevelLogic".player_car_start_touching(body)
+func _on_car_collider_body_exited(body):
+	$"/root/LevelLogic".player_car_stop_touching(body)

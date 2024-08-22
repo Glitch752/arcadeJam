@@ -4,7 +4,17 @@ extends Node
 var parkingLaws: Array[Dictionary] = [
 	{
 		"name": "Don't touch other cars while parked.",
-		"verify": _verifyTouchingOtherCars,
+		"verify": _verify_touching_other_cars,
+		"introduced": 1
+	},
+	{
+		"name": "Don't touch other cars while parked.",
+		"verify": _verify_touching_other_cars,
+		"introduced": 1
+	},
+	{
+		"name": "Don't touch other cars while parked.",
+		"verify": _verify_touching_other_cars,
 		"introduced": 1
 	},
 	{
@@ -14,12 +24,28 @@ var parkingLaws: Array[Dictionary] = [
 	},
 ];
 
-func _verifyTouchingOtherCars() -> bool:
-	return true
+var touching_other_cars: Array[String] = []
+func _verify_touching_other_cars() -> bool:
+	return touching_other_cars.is_empty()
+func player_car_start_touching(other: Node3D):
+	if other.find_parent("OtherVehicles") && !touching_other_cars.has(other.name):
+		touching_other_cars.append(other.name)
+func player_car_stop_touching(other: Node3D):
+	if other.find_parent("OtherVehicles") && touching_other_cars.has(other.name):
+		touching_other_cars = touching_other_cars.filter(func(name): return name != other.name)
 
 func _verifyOnRoad() -> bool:
 	return true
 #endregion
+
+
+
+func reset_level_state():
+	touching_other_cars.clear()
+
+
+
+
 
 func get_active_laws() -> Array[Dictionary]:
 	if !get_tree().current_scene:
@@ -61,6 +87,7 @@ func _unhandled_input(event):
 	
 	if event.is_action_released("reset"):
 		get_tree().reload_current_scene()
+		reset_level_state()
 	
 	if event.is_action_released("park"):
 		_attempt_parking()
@@ -74,3 +101,4 @@ func _attempt_parking():
 			print("Broke law ", law["name"], "!")
 		else:
 			print("Law ", law["name"], " satisfied!")
+		await get_tree().create_timer(0.3).timeout

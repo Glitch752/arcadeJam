@@ -588,3 +588,6 @@ script = ExtResource("2_5773v")
 default_distance = 10.0
 min_distance = 7.0
 max_distance = 25.0
+
+[connection signal="body_entered" from="CarCollider" to="." method="_on_car_collider_body_entered"]
+[connection signal="body_exited" from="CarCollider" to="." method="_on_car_collider_body_exited"]

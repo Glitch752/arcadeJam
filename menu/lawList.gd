@@ -1,6 +1,6 @@
 extends Control
 
-const LAW_LIST_UPDATE_INTERVAL = 0.25; # In seconds
+const LAW_LIST_UPDATE_INTERVAL = 0.05; # In seconds
 
 var law_update_timer := Timer.new()
 # Called when the node enters the scene tree for the first time.
@@ -29,3 +29,13 @@ func _update_laws():
 			else:
 				label.label_settings = unbroken_law_label_settings
 			$"LawList".add_child(label)
+		previous_law_list_length = lawStatus.size()
+	else:
+		var idx = 0
+		for law in lawStatus:
+			var label = $"LawList".get_child(idx)
+			if law["broken"]:
+				label.label_settings = broken_law_label_settings
+			else:
+				label.label_settings = unbroken_law_label_settings
+			idx += 1
