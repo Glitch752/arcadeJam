@@ -3,7 +3,7 @@ extends Node
 #region Parking laws
 var parkingLaws: Array[Dictionary] = [
 	{
-		"name": "Don't touch other cars.",
+		"name": "Don't touch other cars while parked.",
 		"verify": _verifyTouchingOtherCars,
 		"introduced": 1
 	},
@@ -72,3 +72,5 @@ func _attempt_parking():
 	for law in lawStatus:
 		if law["broken"]:
 			print("Broke law ", law["name"], "!")
+		else:
+			print("Law ", law["name"], " satisfied!")
