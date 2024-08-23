@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dx4tced8ie5no"]
+[gd_scene load_steps=42 format=3 uid="uid://dx4tced8ie5no"]
 
 [ext_resource type="Texture2D" uid="uid://3uviwum4rxiq" path="res://assets/tutorialResources/MovementControls.png" id="1_1bhqf"]
 [ext_resource type="PackedScene" uid="uid://dq002782w5tt4" path="res://sedan.tscn" id="1_c3dvp"]
@@ -17,6 +17,7 @@
 [ext_resource type="Material" uid="uid://dwt8lr4ktuuwk" path="res://assets/materials/pavement.tres" id="15_y11uy"]
 [ext_resource type="Texture2D" uid="uid://sq1vpajfkgsp" path="res://assets/tutorialResources/CameraControls.png" id="16_fx5yx"]
 [ext_resource type="Texture2D" uid="uid://c4mvsc2r1fjya" path="res://assets/tutorialResources/ParkControls.png" id="17_q4vth"]
+[ext_resource type="Script" path="res://VehicleColorRandomizer.gd" id="18_3xcck"]
 [ext_resource type="PackedScene" uid="uid://cohcovqvk1x6c" path="res://assets/vehicles/sedan.glb" id="18_opr5g"]
 [ext_resource type="PackedScene" uid="uid://cu5402l7eevvx" path="res://assets/vehicles/truck.glb" id="19_w1q1n"]
 [ext_resource type="PackedScene" uid="uid://bsuhm4lble4de" path="res://assets/vehicles/schoolBus.glb" id="20_0hqam"]
@@ -549,6 +550,7 @@ operation = 2
 size = Vector3(125.8, 3, 125.9)
 
 [node name="OtherVehicles" type="Node" parent="."]
+script = ExtResource("18_3xcck")
 
 [node name="sedan2" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19, 0.285995, 51)

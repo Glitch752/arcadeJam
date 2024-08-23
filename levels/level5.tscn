@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://chrncgdr8sjh0"]
+[gd_scene load_steps=48 format=3 uid="uid://chrncgdr8sjh0"]
 
 [ext_resource type="PackedScene" uid="uid://dq002782w5tt4" path="res://sedan.tscn" id="1_c3dvp"]
 [ext_resource type="PackedScene" uid="uid://b642r4ls07ygp" path="res://assets/tree.glb" id="2_inn2r"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bax80i6axlio3" path="res://assets/buildings/large_buildingF.glb" id="12_6a20g"]
 [ext_resource type="PackedScene" uid="uid://dja46x1l7qtp1" path="res://assets/buildings/large_buildingG.glb" id="13_ygsjc"]
 [ext_resource type="PackedScene" uid="uid://bqd35jwgwps5y" path="res://assets/roads/light_square.glb" id="14_cjbpt"]
+[ext_resource type="Script" path="res://VehicleColorRandomizer.gd" id="14_ujn63"]
 [ext_resource type="Material" uid="uid://dwt8lr4ktuuwk" path="res://assets/materials/pavement.tres" id="15_y11uy"]
 [ext_resource type="PackedScene" uid="uid://cohcovqvk1x6c" path="res://assets/vehicles/sedan.glb" id="18_opr5g"]
 [ext_resource type="PackedScene" uid="uid://cu5402l7eevvx" path="res://assets/vehicles/truck.glb" id="19_w1q1n"]
@@ -442,6 +443,7 @@ operation = 2
 size = Vector3(125.8, 3, 125.9)
 
 [node name="OtherVehicles" type="Node" parent="."]
+script = ExtResource("14_ujn63")
 
 [node name="sedan8" parent="OtherVehicles" instance=ExtResource("18_opr5g")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.66667, 0.285995, 33.0709)

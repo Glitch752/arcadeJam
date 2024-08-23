@@ -30,6 +30,11 @@ func _law_verification_message(message):
 		$"ColorRect/FailTitle".visible = !success
 		$"ColorRect/SuccessTitle".visible = success
 		
+		if success:
+			var last_level = message[1]["lastLevel"]
+			$"ColorRect/SuccessTitle/PressAnyKeyWin".visible = last_level
+			$"ColorRect/SuccessTitle/PressAnyKey".visible = !last_level
+		
 		if !success:
 			var failedLaws = message[1]["brokenLaws"]
 			var children = $"ColorRect/FailTitle/FailedLaws".get_children()

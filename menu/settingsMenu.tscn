@@ -59,7 +59,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 bbcode_enabled = true
-text = "This game was made for the Hack Club Arcade Jam in a little over 4 days. I joined the game jam late, so I unfortunately wasn't able to finish everything I wanted to, but I had a lot of fun making it! The game jam's theme was [b]Loopholes[/b].
+text = "This game was made for the Hack Club Arcade Jam in a little over 4 days. I joined the game jam late, so I unfortunately wasn't able to finish everything I wanted to, but I had a lot of fun making it while learning how to use Godot! The game jam's theme was [b]Loopholes[/b].
 
 The game is about finding loopholes in a set of parking laws that slowly gets stricter as the game progresses.
 

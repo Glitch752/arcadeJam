@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 cameraman="*res://addons/sk_racing_cameras/src/cameraman.gd"
 LevelLogic="*res://level_logic.gd"
+UiSounds="*res://ui_sounds.gd"
 
 [display]
 

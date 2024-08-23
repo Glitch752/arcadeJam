@@ -288,5 +288,6 @@ func _attempt_parking():
 	
 	law_verification_signal.emit(["finish", {
 		"success": brokenLaws.is_empty(),
-		"brokenLaws": brokenLaws
+		"brokenLaws": brokenLaws,
+		"lastLevel": current_level >= levels.size() - 1
 	}])
