@@ -5,6 +5,8 @@ var playback:AudioStreamPlaybackPolyphonic
 
 
 func _enter_tree() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	# Create an audio player
 	var player = AudioStreamPlayer.new()
 	add_child(player)
