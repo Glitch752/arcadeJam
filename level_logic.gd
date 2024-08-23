@@ -226,20 +226,29 @@ func get_law_status() -> Array[Dictionary]:
 	
 	return law_status
 
+var pause_screen = preload("res://menu/pauseMenu.tscn").instantiate()
 func _unhandled_input(event):
 	# This is super hacky, but it works for now ¯\_(ツ)_/¯
-	if !get_tree().current_scene || !get_tree().current_scene.name.to_lower().begins_with("level"):
+	if !get_tree().current_scene:
+		return
+	if !get_tree().current_scene.name.to_lower().begins_with("level"):
 		return
 	
 	if law_verification_running:
 		return
 	
+	if pause_screen.is_inside_tree():
+		return
+	
 	if event.is_action_released("reset"):
 		get_tree().reload_current_scene()
 		reset_level_state()
-	
-	if event.is_action_released("park"):
+	elif event.is_action_released("park"):
 		_attempt_parking()
+	elif event.is_action_released("ui_cancel"):
+		print(event, get_tree().current_scene.name.to_lower())
+		pause_screen.request_ready()
+		get_tree().root.add_child(pause_screen)
 
 var law_verification_running: bool = false
 signal law_verification_signal

@@ -42,7 +42,11 @@ func _object_fall():
 	object.rotate_object_local(Vector3.BACK, randf_range(0, PI * 2))
 	
 	falling.add_child(child)
-	get_tree().create_timer(2.5).connect("timeout", func(): falling.remove_child(child))
+	get_tree().create_timer(2.5).connect("timeout", func(): _finish_fall(child))
+
+func _finish_fall(child: RigidBody3D):
+	falling.remove_child(child)
+	child.queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
