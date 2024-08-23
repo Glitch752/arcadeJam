@@ -2,7 +2,8 @@ extends Node
 
 const SINGLETON_NAME = "cameraman"
 
-static var mouse_sensitivity:float = 0.0025
+static var mouse_sensitivity: float = 0.0025
+static var controller_sensitivity: float = 3.0
 
 const ACTION_SWITCH_CAM     = "switch_camera"
 const ACTION_NEXT_CAM       = "next_camera"

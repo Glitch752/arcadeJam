@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4prhrrvmjw1p"]
+[gd_scene load_steps=6 format=3 uid="uid://c4prhrrvmjw1p"]
 
 [ext_resource type="Script" path="res://menu/pauseMenu.gd" id="1_hcm5f"]
 
@@ -15,6 +15,12 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sraea"]
 shader = SubResource("Shader_dsbqj")
 shader_parameter/amount = null
+
+[sub_resource type="InputEventAction" id="InputEventAction_8bpn2"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_ojg3u"]
+events = [SubResource("InputEventAction_8bpn2")]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -65,6 +71,7 @@ text = "Return to level select"
 
 [node name="Unpause" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_ojg3u")
 text = "Unpause"
 
 [connection signal="pressed" from="VBoxContainer/ReturnToLevelSelect" to="." method="_on_return_to_level_select_pressed"]

@@ -45,3 +45,7 @@ func _process(delta):
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://menu/mainMenu.tscn")
+
+
+func _on_reset_button_pressed():
+	$"/root/LevelLogic".reset_beaten_levels()

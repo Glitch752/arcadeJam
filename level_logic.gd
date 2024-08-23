@@ -26,14 +26,15 @@ func get_level_data() -> Array[Dictionary]:
 		levels_completed_file.close()
 	
 	var levels_completed_file = FileAccess.open("user://levelsCompleted.save", FileAccess.READ)
-	var last_level_completed: int = levels_completed_file.get_32() - 1
+	var levels_completed: int = levels_completed_file.get_32()
 	
 	var i = 0
 	var level_data: Array[Dictionary] = []
 	for level in levels:
+		print(levels_completed)
 		level_data.append({
 			"name": level["name"],
-			"complete": i <= last_level_completed,
+			"complete": (1 << i) | levels_completed == levels_completed,
 			"laws": parkingLaws.filter(func(law): return law["introduced"] <= i).size()
 		})
 		i += 1
@@ -65,17 +66,24 @@ func load_level(level_index: int):
 	reset_level_state()
 	current_level = level_index
 
+func reset_beaten_levels():
+	var levels_completed_file = FileAccess.open("user://levelsCompleted.save", FileAccess.WRITE)
+	levels_completed_file.store_32(0)
+	levels_completed_file.close()
+	get_tree().reload_current_scene()
+
 func load_next_level():
 	if !FileAccess.file_exists("user://levelsCompleted.save"):
 		var levels_completed_file = FileAccess.open("user://levelsCompleted.save", FileAccess.WRITE)
-		levels_completed_file.store_32(1)
+		levels_completed_file.store_32(0)
 		levels_completed_file.close()
 	
 	var levels_completed_file = FileAccess.open("user://levelsCompleted.save", FileAccess.READ_WRITE)
-	var last_level_completed: int = levels_completed_file.get_32() - 1
-	if last_level_completed < current_level + 1:
-		levels_completed_file.seek(0)
-		levels_completed_file.store_32(current_level + 1)
+	var levels_completed: int = levels_completed_file.get_32()
+	levels_completed |= 1 << current_level
+	levels_completed_file.seek(0)
+	levels_completed_file.store_32(levels_completed)
+	levels_completed_file.close()
 	
 	if current_level + 1 >= levels.size():
 		# You finished the game!
@@ -116,7 +124,7 @@ var parkingLaws: Array[Dictionary] = [
 		"introduced": 1
 	},
 	{
-		"name": "Do not park in driveways.",
+		"name": "Do not block driveways.",
 		"verify": _verify_not_in_driveway,
 		"introduced": 3
 	},

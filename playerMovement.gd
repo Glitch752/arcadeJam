@@ -17,12 +17,23 @@ func _process(delta):
 		engine_force = 0
 		return
 	
+	var left_right = clamp(
+		Input.get_axis("move_right", "move_left") + -Input.get_joy_axis(0, JOY_AXIS_LEFT_X),
+		-1, 1
+	)
+	var back_forward = clamp(
+		Input.get_axis("move_back", "move_forward") + sqrt(
+			Input.get_joy_axis(0, JOY_AXIS_LEFT_X) ** 2 + Input.get_joy_axis(0, JOY_AXIS_LEFT_Y) ** 2
+		) * -sign(Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)),
+		-1, 1
+	)
+	
 	steering = move_toward(
 		steering,
-		Input.get_axis("move_right", "move_left") * STEERING_ANGLE * PI / 180,
+		left_right * STEERING_ANGLE * PI / 180,
 		delta * TURNING_SPEED
 	);
-	engine_force = Input.get_axis("move_back", "move_forward") * BASE_ENGINE_FORCE
+	engine_force = back_forward * BASE_ENGINE_FORCE
 
 
 func _on_car_collider_body_entered(body):

@@ -74,13 +74,31 @@ func _on_process(_delta: float) -> void:
 
 	if _cam.position != _cam_pos:
 		_cam.position = _cam.position.lerp(_cam_pos, 0.1)
+	
+	const DEG90 = PI/2
+
+	var x_dir := -1 if invert_x_axis else 1
+	_pivot1.rotate_y(
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_X) * x_dir * _shared.controller_sensitivity * _delta
+	)
+	var y_dir := -1 if invert_y_axis else 1
+	_pivot2.rotate_x(
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y) * y_dir * _shared.controller_sensitivity * _delta
+	)
+	_pivot2.rotation.x = clamp(_pivot2.rotation.x, -DEG90, 0)
+	
+	var step := cam_speed * 50
+	if   Input.is_action_pressed("zoom_in"):  _cam_pos.z += step * _delta
+	elif Input.is_action_pressed("zoom_out"): _cam_pos.z -= step * _delta
+
+	_cam_pos.z = clamp(_cam_pos.z, min_distance, max_distance)
 
 
 func _on_unhandled_input(event: InputEvent) -> void:
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
-		return
-
 	if event is InputEventMouseMotion:
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			return
+		
 		const DEG90 = PI/2
 
 		var x_dir := -1 if invert_x_axis else 1
@@ -88,12 +106,14 @@ func _on_unhandled_input(event: InputEvent) -> void:
 		_pivot1.rotate_y(-event.relative.x * x_dir * _shared.mouse_sensitivity)
 		_pivot2.rotate_x(-event.relative.y * y_dir * _shared.mouse_sensitivity)
 		_pivot2.rotation.x = clamp(_pivot2.rotation.x, -DEG90, 0)
-
 	else:
 		_check_mouse_wheel(event)
 
 
 func _check_mouse_wheel(event:InputEvent) -> void:
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return
+	
 	if event is InputEventMouseButton:
 		var step := cam_speed
 		if Input.is_key_pressed(KEY_SHIFT): step *= 2

@@ -43,9 +43,9 @@ func _law_verification_message(message):
 				label.label_settings = final_broken_law_label_settings
 				$"ColorRect/FailTitle/FailedLaws".add_child(label)
 
-func _unhandled_key_input(event):
+func _unhandled_input(event):
 	if !event.is_released():
 		return
 	
-	if visible:
+	if visible && (event is InputEventKey || event is InputEventJoypadButton):
 		$"/root/LevelLogic".level_result_continue(broke_laws)

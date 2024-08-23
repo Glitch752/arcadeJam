@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://biqopfwyou2a2"]
+[gd_scene load_steps=21 format=3 uid="uid://biqopfwyou2a2"]
 
 [ext_resource type="Script" path="res://menu/mainMenu.gd" id="1_dpt0h"]
 [ext_resource type="Script" path="res://menu/fallingMenu.gd" id="2_cgjf7"]
@@ -39,6 +39,13 @@ outline_color = Color(0.44, 0.561333, 1, 1)
 shadow_size = 20
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qgcq"]
+bg_color = Color(0, 0, 0, 0.470588)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="InputEventAction" id="InputEventAction_ccb0n"]
 action = &"ui_cancel"
@@ -131,7 +138,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -145,30 +152,35 @@ offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
+theme_override_constants/separation = 10
 alignment = 2
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../SelectLevelButton")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7qgcq")
 text = "Play"
 
 [node name="SelectLevelButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7qgcq")
 text = "Select level"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../SelectLevelButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7qgcq")
 text = "Info"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../PlayButton")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7qgcq")
 shortcut = SubResource("Shortcut_ccoxb")
 text = "Quit"
 
