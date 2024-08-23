@@ -40,11 +40,11 @@ func _process(delta):
 	engine_force = back_forward * BASE_ENGINE_FORCE
 	
 	var last_engine_force = engine_force_smooth
-	engine_force_smooth = move_toward(engine_force_smooth, engine_force, delta * BASE_ENGINE_FORCE)
-	steering_smoother = move_toward(steering_smoother, steering, delta * STEERING_ANGLE_RAD * 2)
+	engine_force_smooth = move_toward(engine_force_smooth, abs(engine_force), delta * BASE_ENGINE_FORCE)
+	steering_smoother = move_toward(steering_smoother, abs(steering), delta * STEERING_ANGLE_RAD * 2)
 	$"AudioPlayer1".pitch_scale = \
-		1 + abs(engine_force_smooth) / float(BASE_ENGINE_FORCE) + \
-		abs(steering_smoother) / STEERING_ANGLE_RAD * 0.3
+		1 + engine_force_smooth / float(BASE_ENGINE_FORCE) + \
+		steering_smoother / STEERING_ANGLE_RAD * 0.3
 	$"AudioPlayer1".volume_db = -60 + 30 * pow(engine_force_smooth / float(BASE_ENGINE_FORCE), 0.3)
 
 

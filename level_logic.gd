@@ -31,7 +31,6 @@ func get_level_data() -> Array[Dictionary]:
 	var i = 0
 	var level_data: Array[Dictionary] = []
 	for level in levels:
-		print(levels_completed)
 		level_data.append({
 			"name": level["name"],
 			"complete": (1 << i) | levels_completed == levels_completed,
@@ -100,6 +99,7 @@ func load_menu():
 func reset_level_state():
 	touching_other_cars.clear()
 	law_verification_running = false
+	$"/root/UiSounds".play_level_start()
 
 func level_result_continue(broke_laws: bool):
 	if broke_laws:
@@ -254,7 +254,6 @@ func _unhandled_input(event):
 	elif event.is_action_released("park"):
 		_attempt_parking()
 	elif event.is_action_released("ui_cancel"):
-		print(event, get_tree().current_scene.name.to_lower())
 		pause_screen.request_ready()
 		get_tree().root.add_child(pause_screen)
 
@@ -280,9 +279,11 @@ func _attempt_parking():
 		i += 1
 		if law["broken"]:
 			print("Broke law ", law["name"], "!")
+			$"/root/UiSounds".play_broke_law()
 			brokenLaws.append(law["name"])
 		else:
 			print("Law ", law["name"], " satisfied!")
+			$"/root/UiSounds".play_satisfied_law()
 			
 		await get_tree().create_timer(0.8).timeout
 	
@@ -291,3 +292,8 @@ func _attempt_parking():
 		"brokenLaws": brokenLaws,
 		"lastLevel": current_level >= levels.size() - 1
 	}])
+	
+	if brokenLaws.is_empty():
+		$"/root/UiSounds".play_win()
+	else:
+		$"/root/UiSounds".play_lose()
