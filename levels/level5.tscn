@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dwrowu64c6wmx"]
+[gd_scene load_steps=47 format=3 uid="uid://chrncgdr8sjh0"]
 
 [ext_resource type="PackedScene" uid="uid://dq002782w5tt4" path="res://sedan.tscn" id="1_c3dvp"]
 [ext_resource type="PackedScene" uid="uid://b642r4ls07ygp" path="res://assets/tree.glb" id="2_inn2r"]
@@ -19,12 +19,13 @@
 [ext_resource type="Texture2D" uid="uid://c5s7odi0accjq" path="res://assets/signs/streetSign1.png" id="22_s7j1r"]
 [ext_resource type="Texture2D" uid="uid://c4ykbhkniu56l" path="res://assets/signs/streetSign2.png" id="23_gwf4y"]
 [ext_resource type="Texture2D" uid="uid://dfupk4ca3xxvv" path="res://assets/signs/streetSign3.png" id="24_ln8el"]
+[ext_resource type="Texture2D" uid="uid://dvomglhxir16c" path="res://assets/signs/level5.png" id="25_o2tei"]
 [ext_resource type="Texture2D" uid="uid://wo8tbj7n7vyi" path="res://assets/signs/streetSign4.png" id="25_t3luh"]
-[ext_resource type="Texture2D" uid="uid://othxwg83f4s1" path="res://assets/signs/level4.png" id="25_wk1m8"]
 [ext_resource type="PackedScene" uid="uid://be7yxvpey7kiu" path="res://assets/vehicles/semiTruck.glb" id="26_ko3v7"]
 [ext_resource type="PackedScene" uid="uid://b2di5pd7udbec" path="res://assets/roads/road_drivewaySingle.glb" id="27_24cp6"]
 [ext_resource type="PackedScene" uid="uid://dwyp7l253ybx4" path="res://assets/signs/doublePostSign.glb" id="27_rcl55"]
 [ext_resource type="PackedScene" uid="uid://cfrjmwcq0qhjw" path="res://assets/vehicles/monsterTruck.glb" id="27_sxd2i"]
+[ext_resource type="PackedScene" uid="uid://b1pvc5x46y6hq" path="res://assets/environment/fire_hydrant.tscn" id="28_0mf4j"]
 [ext_resource type="PackedScene" uid="uid://br7w0v0xmb57d" path="res://menu/lawList.tscn" id="28_sgo2p"]
 [ext_resource type="PackedScene" uid="uid://c3oa0oygn0eif" path="res://menu/LevelResultOverlay.tscn" id="29_7jtb7"]
 
@@ -676,14 +677,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3765, 0.725579, 18.9065)
 [node name="Decal" type="Decal" parent="Signs/levelSign"]
 transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 1.34322, 5.62409, -0.148972)
 size = Vector3(3.8989, 0.291962, 1.65149)
-texture_albedo = ExtResource("25_wk1m8")
+texture_albedo = ExtResource("25_o2tei")
 upper_fade = 1.03526e-05
 lower_fade = 1e-05
 
 [node name="Decal2" type="Decal" parent="Signs/levelSign"]
 transform = Transform3D(1, -1.74846e-07, 7.64274e-15, 0, -4.37114e-08, -1, 1.74846e-07, 1, -4.37114e-08, 1.34322, 5.62409, 0.142009)
 size = Vector3(3.8989, 0.291962, 1.65149)
-texture_albedo = ExtResource("25_wk1m8")
+texture_albedo = ExtResource("25_o2tei")
 upper_fade = 1.03526e-05
 lower_fade = 1e-05
 
@@ -726,3 +727,50 @@ shape = SubResource("BoxShape3D_nukss")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RoadEdgeArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2679, 1.33294, 11.9679)
 shape = SubResource("BoxShape3D_nukss")
+
+[node name="FireHydrants" type="Node" parent="."]
+
+[node name="fireHydrant" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3867, 0.725577, 28.0696)
+
+[node name="fireHydrant2" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7819, 0.725577, 51.4859)
+
+[node name="fireHydrant3" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.69785, 0.725577, 55.6356)
+
+[node name="fireHydrant4" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0658, 0.725577, 56.2285)
+
+[node name="fireHydrant5" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8415, 0.725577, 56.2285)
+
+[node name="fireHydrant6" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.7218, 0.725577, 46.2493)
+
+[node name="fireHydrant7" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5241, 0.725577, 24.8091)
+
+[node name="fireHydrant8" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8205, 0.725577, -4.14023)
+
+[node name="fireHydrant9" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8205, 0.725577, -25.0866)
+
+[node name="fireHydrant10" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.063, 0.725577, -32.4969)
+
+[node name="fireHydrant11" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9431, 0.725577, -32.7933)
+
+[node name="fireHydrant12" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49722, 0.725577, -32.0029)
+
+[node name="fireHydrant13" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0004, 0.725577, -32.4969)
+
+[node name="fireHydrant14" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.0903, 0.725577, -20.4429)
+
+[node name="fireHydrant15" parent="FireHydrants" instance=ExtResource("28_0mf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.0903, 0.725577, 1.689)

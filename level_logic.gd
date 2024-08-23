@@ -13,7 +13,9 @@ var levels: Array[Dictionary] = [
 	{ "scene": preload("res://levels/level1.tscn"), "name": "Tutorial" },
 	{ "scene": preload("res://levels/level2.tscn"), "name": "Real parking" },
 	{ "scene": preload("res://levels/level3.tscn"), "name": "No space" },
-	{ "scene": preload("res://levels/level4.tscn"), "name": "What does \"blocking\" entail?" }
+	{ "scene": preload("res://levels/level4.tscn"), "name": "What does \"blocking\" entail?" },
+	{ "scene": preload("res://levels/level5.tscn"), "name": "Strange fire hydrants?" },
+	{ "scene": preload("res://levels/level6.tscn"), "name": "What kind of law is that?" }
 ];
 var current_level: int = -1;
 
@@ -118,6 +120,16 @@ var parkingLaws: Array[Dictionary] = [
 		"verify": _verify_not_in_driveway,
 		"introduced": 3
 	},
+	{
+		"name": "Do not park near fire hydrants.",
+		"verify": _verify_far_from_fire_hydrants,
+		"introduced": 4
+	},
+	{
+		"name": "Do not touch the ground.",
+		"verify": _verify_not_touching_ground,
+		"introduced": 5
+	},
 ];
 
 var touching_other_cars: Array[String] = []
@@ -155,6 +167,39 @@ func _verify_not_in_driveway() -> bool:
 		return false
 	
 	return !driveway_areas.overlaps_body(player)
+
+func _verify_far_from_fire_hydrants() -> bool:
+	var scene = get_tree().current_scene
+	if !scene:
+		return false
+	
+	var player: Node3D = scene.find_child("sedan", false, false)
+	if !player:
+		return false
+	
+	var fire_hydrants = scene.find_child("FireHydrants").get_children()
+	
+	for fire_hydrant in fire_hydrants:
+		if fire_hydrant.find_child("EffectRadius", true, false).overlaps_body(player):
+			return false
+	
+	return true
+
+func _verify_not_touching_ground() -> bool:
+	var scene = get_tree().current_scene
+	if !scene:
+		return false
+	
+	var player: Node3D = scene.find_child("sedan", false, false)
+	if !player:
+		return false
+	
+	var touching = player.find_child("CarCollider").get_overlapping_bodies()
+	for object in touching:
+		if object.find_parent("Tiles"):
+			return false
+	
+	return true
 #endregion
 
 func get_active_laws() -> Array[Dictionary]:

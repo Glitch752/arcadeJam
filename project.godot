@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 cameraman="*res://addons/sk_racing_cameras/src/cameraman.gd"
 LevelLogic="*res://level_logic.gd"
 
+[display]
+
+window/size/mode=2
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/sk_racing_cameras/plugin.cfg")

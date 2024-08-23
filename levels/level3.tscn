@@ -1,7 +1,7 @@
 [gd_scene load_steps=34 format=3 uid="uid://duea4umjnosko"]
 
 [ext_resource type="PackedScene" uid="uid://dq002782w5tt4" path="res://sedan.tscn" id="1_c3dvp"]
-[ext_resource type="PackedScene" uid="uid://b642r4ls07ygp" path="res://assets/signs/tree.glb" id="2_a15o7"]
+[ext_resource type="PackedScene" uid="uid://b642r4ls07ygp" path="res://assets/tree.glb" id="2_tmahs"]
 [ext_resource type="PackedScene" uid="uid://dvtvyjosms2wh" path="res://assets/roads/tile_low.glb" id="3_60v43"]
 [ext_resource type="PackedScene" uid="uid://b5rfrqd6wufn0" path="res://assets/buildings/large_buildingA.glb" id="3_y8pjc"]
 [ext_resource type="PackedScene" uid="uid://nsl5hqb7a3bc" path="res://assets/roads/road_straight.glb" id="4_d304m"]
@@ -65,46 +65,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7663, 0.4, 0.0571164)
 
 [node name="Environment" type="Node" parent="."]
 
-[node name="tree" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, -0.955833, 0.038125, 3.62539)
 
-[node name="tree2" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree2" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, 11.4006, 0.038125, 18.3454)
 
-[node name="tree3" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree3" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, -10.7356, 0.0381236, 64.5269)
 
-[node name="tree4" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree4" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, -46.6156, 0.0381236, 45.8069)
 
-[node name="tree5" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree5" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, -45.1776, 0.0381228, 18.7873)
 
-[node name="tree6" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree6" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, -45.1984, 0.0381228, -2.51851)
 
-[node name="tree7" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree7" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, -32.4343, 0.0381228, -40.7432)
 
-[node name="tree8" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree8" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, -3.77772, 0.0381228, -38.9851)
 
-[node name="tree9" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree9" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, 18.5968, 0.0381228, -50.6773)
 
-[node name="tree10" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree10" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, 38.8768, 0.0381228, -42.8773)
 
-[node name="tree11" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree11" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, 66.9568, 0.0381228, -28.8373)
 
-[node name="tree12" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree12" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, 63.8368, 0.0381228, 7.04273)
 
-[node name="tree13" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree13" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, 70.0768, 0.0381228, 41.3627)
 
-[node name="tree14" parent="Environment" instance=ExtResource("2_a15o7")]
+[node name="tree14" parent="Environment" instance=ExtResource("2_tmahs")]
 transform = Transform3D(3.51653, 0, 0, 0, 3.51653, 0, 0, 0, 3.51653, 48.2368, -1.52188, 64.5627)
 
 [node name="large_buildingA2" parent="Environment" instance=ExtResource("3_y8pjc")]
@@ -566,14 +566,12 @@ lower_fade = 1.1487e-05
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3765, 0.725579, 11.9047)
 
 [node name="Decal" type="Decal" parent="Signs/levelSign"]
-transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 1.34322, 5.62409, -0.148972)
 size = Vector3(3.8989, 0.291962, 1.65149)
 texture_albedo = ExtResource("23_qux5i")
 upper_fade = 1.03526e-05
 lower_fade = 1e-05
 
 [node name="Decal2" type="Decal" parent="Signs/levelSign"]
-transform = Transform3D(1, -1.74846e-07, 7.64274e-15, 0, -4.37114e-08, -1, 1.74846e-07, 1, -4.37114e-08, 1.34322, 5.62409, 0.142009)
 size = Vector3(3.8989, 0.291962, 1.65149)
 texture_albedo = ExtResource("23_qux5i")
 upper_fade = 1.03526e-05
