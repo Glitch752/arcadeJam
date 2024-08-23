@@ -113,6 +113,11 @@ var parkingLaws: Array[Dictionary] = [
 		"verify": _verify_near_road_edge,
 		"introduced": 1
 	},
+	{
+		"name": "Do not park in driveways.",
+		"verify": _verify_not_in_driveway,
+		"introduced": 3
+	},
 ];
 
 var touching_other_cars: Array[String] = []
@@ -137,6 +142,19 @@ func _verify_near_road_edge() -> bool:
 		return false
 	
 	return road_edge_area.overlaps_body(player)
+
+func _verify_not_in_driveway() -> bool:
+	var scene = get_tree().current_scene
+	if !scene:
+		return false
+	
+	var driveway_areas: Area3D = scene.find_child("DrivewayAreas", false, false)
+	var player: Node3D = scene.find_child("sedan", false, false)
+	
+	if !driveway_areas || !player:
+		return false
+	
+	return !driveway_areas.overlaps_body(player)
 #endregion
 
 func get_active_laws() -> Array[Dictionary]:
