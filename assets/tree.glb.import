@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c3hovouuvwmav"
-path="res://.godot/imported/construction_barrier.glb-24aab3649e9bb3c7b85de82c7ecbd293.scn"
+uid="uid://b642r4ls07ygp"
+path="res://.godot/imported/tree.glb-d29a3d5b2d34de8f26474065b5543a28.scn"
 
 [deps]
 
-source_file="res://assets/roads/construction_barrier.glb"
-dest_files=["res://.godot/imported/construction_barrier.glb-24aab3649e9bb3c7b85de82c7ecbd293.scn"]
+source_file="res://assets/tree.glb"
+dest_files=["res://.godot/imported/tree.glb-d29a3d5b2d34de8f26474065b5543a28.scn"]
 
 [params]
 
@@ -31,8 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:tmpParent/construction_barrier": {
-"generate/physics": true
+"PATH:Circle": {
+"generate/physics": true,
+"physics/shape_type": 1
 }
 }
 }

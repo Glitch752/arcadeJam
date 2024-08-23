@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b642r4ls07ygp"
-path="res://.godot/imported/tree.glb-347aacc7dedb871acb9673ca5518341b.scn"
+uid="uid://c2860mamagbm8"
+path="res://.godot/imported/fireHydrant.glb-50e86c9936f580b7694a3c6fa66a480d.scn"
 
 [deps]
 
-source_file="res://assets/signs/tree.glb"
-dest_files=["res://.godot/imported/tree.glb-347aacc7dedb871acb9673ca5518341b.scn"]
+source_file="res://assets/environment/fireHydrant.glb"
+dest_files=["res://.godot/imported/fireHydrant.glb-50e86c9936f580b7694a3c6fa66a480d.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Circle": {
+"PATH:Sketchfab_model/8e1373f6b8bd452bb012907dc8f40cf7_fbx/RootNode/Cercle/Cercle_Fire Hydrant_0": {
 "generate/physics": true
 }
 }
