@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b642r4ls07ygp"
-path="res://.godot/imported/tree.glb-d29a3d5b2d34de8f26474065b5543a28.scn"
+uid="uid://4igbifx0upfa"
+path="res://.godot/imported/low_poly_picnic_table.glb-a0245df65644a73092b39759cb7cab53.scn"
 
 [deps]
 
-source_file="res://assets/tree.glb"
-dest_files=["res://.godot/imported/tree.glb-d29a3d5b2d34de8f26474065b5543a28.scn"]
+source_file="res://assets/environment/low_poly_picnic_table.glb"
+dest_files=["res://.godot/imported/low_poly_picnic_table.glb-a0245df65644a73092b39759cb7cab53.scn"]
 
 [params]
 
@@ -31,11 +31,8 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Circle": {
-"generate/physics": true,
-"physics/physics_material_override": Object(PhysicsMaterial,"resource_local_to_scene":false,"resource_name":"","friction":0.0,"rough":false,"bounce":0.0,"absorbent":false,"script":null)
-,
-"physics/shape_type": 1
+"PATH:Sketchfab_model/185040512dda4108bd189fbf22a017aa_fbx/RootNode/picnic table/picnic table_table_0": {
+"physics/shape_type": 2
 }
 }
 }
