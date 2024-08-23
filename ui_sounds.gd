@@ -62,3 +62,23 @@ func play_win() -> void:
 var _lose_sound = preload('res://assets/sounds/lose_level.wav')
 func play_lose() -> void:
 	playback.play_stream(_lose_sound, 0, 0, randf_range(0.9, 1.1))
+
+var _fire_hydrant_collision_sound = preload('res://assets/sounds/fire_hydrant_collision.ogg')
+func play_fire_hydrant_collision() -> void:
+	playback.play_stream(_fire_hydrant_collision_sound, 0, 0, randf_range(0.9, 1.1))
+
+var _picnic_table_collision_sound = preload('res://assets/sounds/picnic_table_collision.ogg')
+func play_picnic_table_collision() -> void:
+	playback.play_stream(_picnic_table_collision_sound, 0, 0, randf_range(0.9, 1.1))
+
+var _trash_can_collision_sound = preload('res://assets/sounds/trash_can_collision.ogg')
+func play_trash_can_collision() -> void:
+	playback.play_stream(_trash_can_collision_sound, 0, 0, randf_range(0.9, 1.1))
+
+var _vehicle_collision_sound = preload("res://assets/sounds/car_collision.ogg")
+func play_vehicle_collision() -> void:
+	playback.play_stream(_vehicle_collision_sound, 0, 0, randf_range(0.9, 1.1))
+
+var _building_collision_sound = preload("res://assets/sounds/building_collision.ogg")
+func play_building_collision() -> void:
+	playback.play_stream(_building_collision_sound, 0, 0, randf_range(0.9, 1.1))

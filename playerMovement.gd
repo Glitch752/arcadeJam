@@ -48,7 +48,19 @@ func _process(delta):
 	$"AudioPlayer1".volume_db = -60 + 30 * pow(engine_force_smooth / float(BASE_ENGINE_FORCE), 0.3)
 
 
-func _on_car_collider_body_entered(body):
+func _on_car_collider_body_entered(body: Node3D):
 	$"/root/LevelLogic".player_car_start_touching(body)
+	
+	if body.find_parent("FireHydrants"):
+		$"/root/UiSounds".play_fire_hydrant_collision()
+	elif body.find_parent("PicnicTables"):
+		$"/root/UiSounds".play_picnic_table_collision()
+	elif body.find_parent("OtherVehicles"):
+		$"/root/UiSounds".play_vehicle_collision()
+	elif body.name == "Walls" || body.find_parent("Signs"):
+		$"/root/UiSounds".play_building_collision()
+	elif body.find_parent("TrashCans"):
+		$"/root/UiSounds".play_trash_can_collision()
+
 func _on_car_collider_body_exited(body):
 	$"/root/LevelLogic".player_car_stop_touching(body)
